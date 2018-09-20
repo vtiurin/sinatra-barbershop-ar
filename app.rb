@@ -15,3 +15,7 @@ get '/' do
     @barbers = Barber.order 'created_at DESC'
     erb :index
 end
+
+get '/visit' do
+    erb :visit
+end
