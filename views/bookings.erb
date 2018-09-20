@@ -1,0 +1,23 @@
+<h1>Список записавшихся:</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Date</th>
+      <th scope="col">Barber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+      <th scope="row"><%= client.id %></th>
+      <td><%= client.name %></td>
+      <td><%= client.phone %></td>
+      <td><%= client.date %></td>
+      <td><%= client.barber %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
