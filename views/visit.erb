@@ -3,19 +3,19 @@
 <form action="/visit" method="post">
   <div class="form-group">
     <label>Ваше имя:</label>
-    <input name="client[name]" class="form-control">
+    <input name="client[name]" value="<%= @client.name %>" class="form-control">
   </div>
   <div class="form-group">
     <label>Ваш телефон:</label>
-    <input name="client[phone]" class="form-control">
+    <input name="client[phone]" value="<%= @client.phone %>" class="form-control">
   </div>
   <div class="form-group">
     <label>Когда вас ждать?</label>
-    <input name="client[date]" id="datepicker" class="form-control">
+    <input name="client[date]" value="<%= @client.date %>" id="datepicker" class="form-control">
   </div>
   <div class="form-group">
     <label>Ваш парикмахер</label>
-    <select name="client[barber]" class="form-control">
+    <select name="client[barber]" value="<%= @client.barber %>" class="form-control">
       <% @barbers.each do |barber| %>
         <option><%= barber.name %></option>
       <% end %>

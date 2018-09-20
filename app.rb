@@ -6,6 +6,10 @@ require 'sinatra/reloader' if development?
 set :database, 'sqlite3:barbershop.db'
 
 class Client < ActiveRecord::Base
+    validates :name, presence: true
+    validates :phone, presence: true
+    validates :date, presence: true
+    validates :barber, presence: true
 end
 
 class Barber < ActiveRecord::Base
@@ -21,11 +25,16 @@ before '/visit' do
 end
 
 get '/visit' do
+    @client = Client.new
     erb :visit
 end
 
 post '/visit' do
-    client = Client.new params[:client]
-    client.save
-    erb 'Спасибо, вы записались!'
+    @client = Client.new params[:client]
+    if @client.save
+        erb 'Спасибо, вы записались!'
+    else
+        puts @client
+        erb :visit
+    end
 end
