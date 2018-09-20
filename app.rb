@@ -12,5 +12,6 @@ class Barber < ActiveRecord::Base
 end
 
 get '/' do
-    erb 'recent posts:'
+    @barbers = Barber.order 'created_at DESC'
+    erb :index
 end
